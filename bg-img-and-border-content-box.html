@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Content Box vs Border Box</title>
+  <style>
+    /* Page background and setup */
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url('https://picsum.photos/seed/nature/1200/800');
+  background-size: cover;
+  background-position: center;
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Wrapper to hold both boxes */
+.wrapper {
+  display: flex;
+  gap: 40px;
+}
+
+/* Common box styles */
+.box {
+  width: 400px;
+  height: 200px;
+  padding: 30px;
+  border: 5px solid #222;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  background-color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+}
+
+/* content-box (default behavior) */
+.content-box {
+  box-sizing: content-box;
+}
+
+/* border-box (adjusts size to include border + padding) */
+.border-box {
+  box-sizing: border-box;
+}
+
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="box content-box">
+      <h2>Content-Box</h2>
+      <p>Width: 400px<br>Height: 200px</p>
+    </div>
+
+    <div class="box border-box">
+      <h2>Border-Box</h2>
+      <p>Width: 400px<br>Height: 200px</p>
+    </div>
+  </div>
+</body>
+</html>
