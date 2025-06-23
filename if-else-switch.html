@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Coffee Shop</title>
+  <script>
+    let drink = prompt("Welcome! What would you like to order?\nOptions: Coffee, Tea, Juice");
+    let price = 0;
+
+    // switch to set price based on drink
+    switch (drink.toLowerCase()) {
+      case "coffee":
+        price = 80;
+        break;
+      case "tea":
+        price = 40;
+        break;
+      case "juice":
+        price = 60;
+        break;
+      default:
+        alert("Sorry, we don't have that item.");
+        price = 0;
+    }
+
+    // if-else ladder to comment on price
+    if (price > 70) {
+      alert(`You ordered ${drink}. Price: ₹${price}. That's a premium drink! 🤑`);
+    } else if (price > 50) {
+      alert(`You ordered ${drink}. Price: ₹${price}. Nice choice! 😋`);
+    } else if (price > 0) {
+      alert(`You ordered ${drink}. Price: ₹${price}. Budget-friendly! 💰`);
+    }
+
+  </script>
+</head>
+<body>
+</body>
+</html>
