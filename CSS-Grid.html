@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Featured Tech Deals</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      padding: 30px;
+      background-color: #f0f2f5;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 40px;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .grid-item {
+      background-color: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.2s ease;
+    }
+
+    .grid-item:hover {
+      transform: scale(1.03);
+    }
+
+    .grid-item h3 {
+      margin: 15px 0 5px;
+      color: #222;
+    }
+    .grid-item p {
+      margin: 15px 0 5px;
+      color: #908e8e;
+    }
+
+    .featured {
+      grid-column: span 2;
+      grid-row: span 2;
+      background-color: #e0f7fa;
+      border: 2px solid #00bcd4;
+    }
+
+    
+  </style>
+</head>
+<body>
+
+  <h1>Grid properties</h1>
+
+  <div class="grid-container">
+    <div class="grid-item featured">
+      <h3>Grid container</h3>
+      <p>grid-column: span 2 <br> grid-row: span 2</p>
+      
+    </div>
+
+    <div class="grid-item">
+      <h3>Grid item 1</h3>
+      <p>grid-column: span 1 <br> grid-row: span 1</p>
+      
+    </div>
+
+    <div class="grid-item">
+      <h3>Grid item 2</h3>
+      <p>grid-column: span 1 <br> grid-row: span 1</p>
+      
+    </div>
+
+    <div class="grid-item">
+      <h3>Grid item 3</h3>
+      <p>grid-column: span 1 <br> grid-row: span 1</p>
+      
+    </div>
+
+    <div class="grid-item">
+      <h3>Grid item 4</h3>
+      <p>grid-column: span 1 <br> grid-row: span 1</p>
+      
+    </div>
+
+    <div class="grid-item">
+      <h3>Grid item 5</h3>
+      <p>grid-column: span 1 <br> grid-row: span 1</p>
+      
+    </div>
+  </div>
+
+</body>
+</html>
