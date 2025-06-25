@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // Task:
+        // 1. Practice continue
+        // 2. Practice while loop with 10 Examples
+        // 3. Get the table number, start point, end point in runtime to print the multiplication table.
+
+        // Task 1: Practice 'continue'
+        console.log("=== Task 1: Continue Statement Example ===");
+        for (let i = 1; i <= 10; i++) {
+        if (i === 5) continue; // Skip number 5
+        console.log("Number:", i);
+        }
+
+        // Task 2: Practice while loop with 10 examples
+        console.log("\n=== Task 2: While Loop Examples ===");
+        let count = 1;
+        while (count <= 10) {
+        console.log("Example", count, "- Square:", count * count);
+        count++;
+        }
+
+        // Task 3: Multiplication Table with runtime input
+        console.log("\n=== Task 3: Multiplication Table (Runtime Input) ===");
+
+        let tableNum = parseInt(prompt("Enter the table number: "));
+        let start = parseInt(prompt("Enter the start point: "));
+        let end = parseInt(prompt("Enter the end point: "));
+
+        let i = start;
+        while (i <= end) {
+        console.log(`${tableNum} x ${i} = ${tableNum * i}`);
+        i++;
+        }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
