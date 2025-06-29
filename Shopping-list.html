@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgb(246, 246, 246);
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        input{
+            margin: 20px;
+            padding: 11px;
+            width: 350px;
+            border: none;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: white;
+        }
+        .entry-btn{
+            margin: 10px;
+            padding: 11px;
+            color: white;
+            background-color: red;
+            border: none;
+            cursor: pointer;
+        }
+        .entry-btn:hover{
+            background-color: rgb(238, 2, 2);
+        }
+        ul li{
+            list-style-type: none;
+            border: 1px solid grey;
+            padding: 10px;
+            width: 150px;
+        }
+       
+        #filter{
+            background-color: rgb(246, 246, 246);
+            border:none;
+            border-bottom: 1px solid grey; 
+        }
+        input:focus{
+            outline:none;
+        }
+        .x-mark-btn{
+            background-color: rgb(246, 246, 246);
+            border:none;
+            cursor: pointer;
+            color: red;
+        }
+        .clr-btn{
+            background-color: rgb(246, 246, 246);
+            border:none;
+            cursor: pointer;
+            border: 1px solid grey;
+            padding: 10px;
+            width:350px;
+            margin-top: 25px;
+        }
+        #list-group{
+            display:flex;
+            width: 400px;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        #list-group:empty {
+            padding: 0;
+            margin:0;
+        }
+        .list-group-item{
+            box-shadow: 3px 3px 4px 1px rgba(54, 53, 53, 0.3);
+        }
+    </style>
+    
+</head>
+<body>
+    <center>
+        <h1><i class="fa-solid fa-cart-shopping"></i> Shopping list</h1>
+        <input type="text" placeholder="Enter item" id="input-item"><br>
+        <button type="button" class="entry-btn" onclick="getInput()"><i class="fa-solid fa-plus"></i> Add item</button><br>
+        <input type="text" placeholder="Filter items" id="filter">
+        <ul id="list-group">
+            
+            <li class="list-group-item">
+                <button class="x-mark-btn"><i class="fa-solid fa-xmark"></i></button>
+                    book
+            </li>
+            <li class="list-group-item">
+                <button class="x-mark-btn"><i class="fa-solid fa-xmark"></i></button>
+                    pencil
+            </li>
+        
+            <li class="list-group-item">
+                <button class="x-mark-btn"><i class="fa-solid fa-xmark"></i></button>
+                    shoes
+            </li>
+            <li class="list-group-item">
+                <button class="x-mark-btn"><i class="fa-solid fa-xmark"></i></button>
+                    box
+            </li>
+
+            <li class="list-group-item">
+                <button class="x-mark-btn"><i class="fa-solid fa-xmark"></i></button>
+                    bag
+            </li>
+            <li class="list-group-item">
+                <button class="x-mark-btn"><i class="fa-solid fa-xmark"></i></button>
+                    pen
+            </li>
+
+        </ul>
+        <button class="clr-btn" type="button" onclick="clearAll()">Clear all</button>
+    </center>
+    <script>
+
+        list_group = document.getElementById('list-group');
+        filter = document.getElementById('filter');
+
+        function getInput(){
+            let input = document.getElementById('input-item');
+            list_group = document.getElementById('list-group');
+
+            li = document.createElement("li");
+            button = document.createElement("button");
+            i = document.createElement("i");
+
+            button.className = "x-mark-btn";
+            li.className = "list-group-item";
+            i.className = "fa-solid fa-xmark";
+
+            button.appendChild(i);
+            li.appendChild(button);
+            li.appendChild(document.createTextNode(input.value));
+            list_group.appendChild(li);
+
+            console.log(list_group, li, i);
+            input.value='';
+        }
+
+
+        function clearAll(){
+            list_group = document.getElementById('list-group');
+            while(list_group.firstChild){
+                list_group.removeChild(list_group.firstChild);
+            }
+        }
+
+        function removeItem(event){
+            if(event.target.parentElement.parentElement.classList.contains("list-group-item")){
+                event.target.parentElement.parentElement.remove();
+            }
+        }
+
+        function filterItems(event){
+            let text = event.target.value.toLowerCase();
+            items = document.querySelectorAll('li');
+
+            items.forEach((item) => {
+                //let itemName = item.textContent.replace(item.querySelector('button').textContent, '').trim().toLowerCase();
+                let itemName = item.textContent.trim().toLowerCase();
+
+                if((itemName.indexOf(text))==-1)
+                    item.style.display = "none";
+                else
+                    item.style.display = "block";
+             });       
+        }
+
+        list_group.addEventListener('click',removeItem);
+        filter.addEventListener('input',filterItems);
+
+    </script>
+</body>
+</html>
